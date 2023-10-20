@@ -7,6 +7,7 @@ I used gorilla mux for routing, swagger ui for documentation and testing
 Description:
 
  Order to given pack sizes api behaves order by following rules:
+ 
     1.	Only whole packs can be sent. Packs cannot be broken open. 
 
     2.	Within the constraints of Rule 1 above, send out no more items than necessary to fulfil the order. 
@@ -17,6 +18,7 @@ Description:
 
 
 Installation 
+
 1. Make sure you have Go installed
 
 2. Clone repo
@@ -26,6 +28,7 @@ Installation
 For usage just run command: go run main.go 
 
 API Endpoints
+
 The API provides the following endpoints for calculating pack sizes:
 
 GET /api/v1/pack-sizes: To get existing pack sizes 
