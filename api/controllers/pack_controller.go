@@ -104,13 +104,20 @@ func fulfillOrder(orderQuantity int, packSizes []int) (map[int]int, int) {
 	fulfillment := make(map[int]int)
 	remainingQuantity := orderQuantity
 	packCount := 0
+	beforePackSize := 0
 	for _, packSize := range packSizes {
 		if remainingQuantity >= packSize {
-			numPacks := remainingQuantity / packSize
-			fulfillment[packSize] = numPacks
-			remainingQuantity -= numPacks * packSize
-			packCount += numPacks
+			if (beforePackSize-remainingQuantity < remainingQuantity-packSize) && (beforePackSize != 0) {
+				fulfillment[beforePackSize]++
+				remainingQuantity = 0
+			} else {
+				numPacks := remainingQuantity / packSize
+				fulfillment[packSize] = numPacks
+				remainingQuantity -= numPacks * packSize
+				packCount += numPacks
+			}
 		}
+		beforePackSize = packSize
 	}
 	if remainingQuantity > 0 {
 		minPackSize := packSizes[len(packSizes)-1]
