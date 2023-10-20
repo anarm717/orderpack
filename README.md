@@ -2,7 +2,7 @@ Go Pack Size Calculator API
 
 The API can calculate the number of packs we need to ship to the customer. 
 
-I used gorilla mux for routing, swagger ui for documentation and testing 
+I used gorilla mux for routing, swagger ui for documentation and testing. 
 
 Description:
 
@@ -25,6 +25,15 @@ Installation
 2. Clone repo
 
 3. Install dependencies with command : go mod tidy
+
+
+The API also dockerized. To run on docker : 
+
+1. Build image with command: docker build -t orderpack .
+
+2. Run container with command: docker run -p 8080:8080 orderpack
+
+
 
 For usage just run command: go run main.go 
 
